@@ -1,0 +1,128 @@
+/* CSS untuk halaman */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dancing Script', cursive;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.text-display {
+    font-size: 2em;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.next-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #ff4d6d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.next-button:hover {
+    background-color: #ff1e4b;
+}
+
+.next-button.clicked {
+    transform: scale(1.1);
+}
+
+/* Animasi bunga */
+.flowers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Tidak mengganggu klik pengguna */
+    overflow: hidden;
+    z-index: -1;
+}
+
+.flower {
+    position: absolute;
+    bottom: -10%;
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatUp 5s linear infinite;
+}
+
+.flower:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.flower:nth-child(2) {
+    left: 40%;
+    animation-delay: 1s;
+}
+
+.flower:nth-child(3) {
+    left: 60%;
+    animation-delay: 2s;
+}
+
+.flower:nth-child(4) {
+    left: 80%;
+    animation-delay: 3s;
+}
+
+.flower:nth-child(5) {
+    left: 50%;
+    animation-delay: 4s;
+}
+
+/* Keyframes untuk efek melayang */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50vh) scale(1.2);
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Confession</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"rel="stylesheet">
+</head>
+<body>
+    <!-- Background video -->
+    <video class="video-background" autoplay muted loop>
+        <source src="background-video.mp4" type="video/mp4">
+        Browser Anda tidak mendukung video.
+    </video>
+
+    <!-- Overlay teks romantis dengan tombol Next -->
+    <div class="overlay">
+        <div class="text-display" id="textDisplay"></div>
+        <button class="next-button" onclick="nextText()">Next</button>
+    </div>
+
+    <!-- Animasi Bunga -->
+    <div class="flowers">
+        <!-- Bunga-bunga -->
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+    </div>
+
+    <audio autoplay loop>
+        <source src="romantic-music.mp3" type="audio/mp3">
+        Browser Anda tidak mendukung audio.
+    </audio>
+
+    <script>
+        const romanticTexts = [
+            "Selamat ulang tahun, sayang. Terima kasih sudah hadir dalam hidupku, semoga hari ini dan seterusnya penuh kebahagiaan untukmu",
+            "Di hari spesialmu ini, aku hanya ingin kamu tahu, kamu adalah segalanya bagiku. Selamat ulang tahun, cintaku",
+            "Selamat ulang tahun, cinta! Semoga setiap harimu dipenuhi kebahagiaan, dan aku selalu ada untukmu",
+            "Happy birthday, sayang! Setiap detik bersamamu adalah anugerah terindah",
+            "Selamat ulang tahun! Semoga cinta kita selalu tumbuh, seperti hari-hari indah yang kita lewati bersama",
+            "Selamat ulang tahun, cintaku! Aku bersyukur bisa merayakan hari spesial ini bersamamu",
+            "Selamat panjang umur dan murah rezeki sayang, mudah mudahan apa yang kita impikan untuk menjadi hubungan yang halal segera tercapai ya sayang",
+            "Tertanda tangan, Reza,Akang,Abang,Sayang,Ayah coming soon, Inshaallah",
+        ];
+
+        let currentTextIndex = 0;
+
+        function displayText(text, index = 0) {
+            if (index < text.length) {
+                document.getElementById("textDisplay").textContent += text[index];
+                setTimeout(() => displayText(text, index + 1), 50);
+            }
+        }
+
+        function nextText() {
+            if (currentTextIndex < romanticTexts.length) {
+                document.getElementById("textDisplay").textContent = ""; 
+                displayText(romanticTexts[currentTextIndex]); 
+                currentTextIndex++;
+                const nextButton = document.querySelector(".next-button");
+                nextButton.classList.add("clicked");
+                setTimeout(() => nextButton.classList.remove("clicked"), 300);
+            } else {
+                document.getElementById("textDisplay").textContent = "Sayangggg Adekkkk";
+                document.querySelector(".next-button").style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
